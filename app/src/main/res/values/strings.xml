@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Imd_Market</string>
+    <string name="app_title">IMDMARKET</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="login_lable">Login:</string>
+    <string name="password_lable">Senha:</string>
+    <string name="sign_in_button">ENTRAR</string>
+    <string name="forgot_password">Esqueci minha senha</string>
+</resources>
