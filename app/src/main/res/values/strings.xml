@@ -18,7 +18,11 @@
     <!-- CREATE PRODUCT ACTIVITY-->
     <string name="create_product_title">CADASTRAR PRODUTO</string>
     <string name="save_product_button">Salvar</string>
-    
+
+    <!-- UPDATE PRODUCT ACTIVITY -->
+    <string name="update_product_title">ALTERAR PRODUTO</string>
+    <string name="change_product_button">Alterar</string>
+
     <!-- PRODUCT FORM LABELS -->
     <string name="form_product_code">Código do produto:</string>
     <string name="form_product_name">Nome do produto:</string>

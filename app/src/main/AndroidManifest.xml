@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Imd_Market"
         tools:targetApi="31">
         <activity
+            android:name=".controllers.UpdateProductActivity"
+            android:exported="false" />
+        <activity
             android:name=".controllers.CreateProductActivity"
             android:exported="false" />
         <activity
