@@ -23,6 +23,11 @@
     <string name="update_product_title">ALTERAR PRODUTO</string>
     <string name="change_product_button">Alterar</string>
 
+    <!-- DELETE PRODUCT ACTIVITY -->
+    <string name="delete_product_title">DELETAR PRODUTO</string>
+    <string name="remove_product_button">Deletar</string>
+
+
     <!-- PRODUCT FORM LABELS -->
     <string name="form_product_code">Código do produto:</string>
     <string name="form_product_name">Nome do produto:</string>
