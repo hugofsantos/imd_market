@@ -4,4 +4,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#FF5722</color>
     <color name="forgot_password">#3F51B5</color>
+    <color name="form_product_labels">#606060</color>
 </resources>

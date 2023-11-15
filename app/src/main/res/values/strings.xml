@@ -14,4 +14,16 @@
     <string name="list_products_button">Listar produtos</string>
     <string name="update_product_button">Alterar produto</string>
     <string name="delete_product_button">Deletar produtos</string>
+
+    <!-- CREATE PRODUCT ACTIVITY-->
+    <string name="create_product_title">CADASTRAR PRODUTO</string>
+    <string name="save_product_button">Salvar</string>
+    
+    <!-- PRODUCT FORM LABELS -->
+    <string name="form_product_code">Código do produto:</string>
+    <string name="form_product_name">Nome do produto:</string>
+    <string name="form_product_description">Descrição do produto:</string>
+    <string name="form_product_stock">Estoque:</string>
+    <string name="clear_form">Limpar</string>
+
 </resources>
