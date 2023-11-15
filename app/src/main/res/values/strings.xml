@@ -7,4 +7,11 @@
     <string name="password_lable">Senha:</string>
     <string name="sign_in_button">ENTRAR</string>
     <string name="forgot_password">Esqueci minha senha</string>
+
+    <!-- HOME ACTIVITY-->
+    <string name="home_question">O que deseja fazer?</string>
+    <string name="create_product_button">Cadastrar produto</string>
+    <string name="list_products_button">Listar produtos</string>
+    <string name="update_product_button">Alterar produto</string>
+    <string name="delete_product_button">Deletar produtos</string>
 </resources>
