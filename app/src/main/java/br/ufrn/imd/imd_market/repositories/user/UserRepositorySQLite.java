@@ -29,9 +29,9 @@ public class UserRepositorySQLite implements IUserRepository {
             SQLiteAdmin admin = SQLiteConfig.getConfig();
             db = admin.getReadableDatabase();
 
-            final String query = "SELECT id, login, password FROM users WHERE login =" + login + " LIMIT 1";
+            final String query = "SELECT id, login, password FROM users WHERE login=? LIMIT 1";
 
-            Cursor result = db.rawQuery(query, null);
+            Cursor result = db.rawQuery(query, new String[]{login});
 
             if(result.moveToFirst()) {
                 final User user = new User();

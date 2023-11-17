@@ -16,12 +16,12 @@ public class AuthManager {
         return instance;
     }
 
-    public User login(String login, String password) throws Exception{
+    public User signIn(String login, String password) throws Exception{
         try {
             final User user = this.userManager.getUserByLogin(login);
 
             if(user == null) throw new Exception("Não existe nenhum usuário com esse login.");
-            if(user.getPassword() != password) throw new Exception("Senha incorreta.");
+            if(!user.getPassword().equals(password)) throw new Exception("Senha incorreta.");
 
             return user;
         }catch (Exception e) {
