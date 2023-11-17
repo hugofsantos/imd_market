@@ -13,6 +13,7 @@ import br.ufrn.imd.imd_market.models.Product;
 import br.ufrn.imd.imd_market.repositories.product.IProductRepository;
 import br.ufrn.imd.imd_market.repositories.product.ProductRepositorySQLite;
 import br.ufrn.imd.imd_market.utils.AppContext;
+import br.ufrn.imd.imd_market.utils.MessageDisplay;
 
 public class CreateProductActivity extends AppCompatActivity {
     private ProductManager productManager;
@@ -55,17 +56,10 @@ public class CreateProductActivity extends AppCompatActivity {
             this.productManager.saveProduct(product);
             this.clearFields();
 
-            showMessage("Produto criado", "O produto foi criado com sucesso!");
+            MessageDisplay.showMessage("Produto criado", "O produto foi criado com sucesso!", this);
         }catch (Exception e) {
-            showMessage("Erro ao criar produto", e.getMessage());
+            MessageDisplay.showMessage("Erro ao criar produto", e.getMessage(), this);
         }
-    }
-
-    public void showMessage(String title, String message) {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle(title);
-        dialog.setMessage(message);
-        dialog.show();
     }
 
     public void clearFieldsOnClick(View v) {

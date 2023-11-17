@@ -15,6 +15,7 @@ import br.ufrn.imd.imd_market.models.User;
 import br.ufrn.imd.imd_market.repositories.user.IUserRepository;
 import br.ufrn.imd.imd_market.repositories.user.UserRepositorySQLite;
 import br.ufrn.imd.imd_market.utils.AppContext;
+import br.ufrn.imd.imd_market.utils.MessageDisplay;
 
 public class MainActivity extends AppCompatActivity {
     private AuthManager authManager;
@@ -44,19 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
             if(user != null) navigateToHome();
         }catch (Exception e) {
-            this.showMessage("Autenticação falhou", e.getMessage());
+            MessageDisplay.showMessage("Autenticação falhou", e.getMessage(), this);
         }
     }
 
     public void navigateToHome() {
         Intent intent = new Intent(this, HomeActivity.class);
         startActivity(intent);
-    }
-
-    public void showMessage(String title, String message) {
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle(title);
-        dialog.setMessage(message);
-        dialog.show();
     }
 }
