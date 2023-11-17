@@ -7,18 +7,18 @@
     tools:context=".controllers.HomeActivity">
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/deleteProductNav"
         android:layout_width="115dp"
         android:layout_height="60dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="16dp"
         android:background="@color/primary"
         android:text="@string/delete_product_button"
-        app:layout_constraintStart_toEndOf="@+id/button4"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintStart_toEndOf="@+id/updateProductNav"
+        app:layout_constraintTop_toBottomOf="@+id/listProductsNav" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/updateProductNav"
         android:layout_width="115dp"
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
@@ -26,17 +26,17 @@
         android:background="@color/primary"
         android:text="@string/update_product_button"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/createProductNav" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/listProductsNav"
         android:layout_width="115dp"
         android:layout_height="60dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="64dp"
         android:background="@color/primary"
         android:text="@string/list_products_button"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/createProductNav"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
@@ -73,7 +73,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/createProductNav"
         android:layout_width="115dp"
         android:layout_height="60dp"
         android:layout_marginStart="60dp"
