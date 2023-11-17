@@ -37,11 +37,10 @@ public class UserRepositorySQLite implements IUserRepository {
                 final User user = new User();
 
                 final int id = result.getInt(0);
-                final String userlogin = result.getString(1);
                 final String password = result.getString(2);
 
                 user.setId(id);
-                user.setLogin(userlogin);
+                user.setLogin(login);
                 user.setPassword(password);
 
                 return user;

@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.254"
             app:layout_constraintStart_toEndOf="@+id/button6"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/codeCreateEt" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
         <EditText
-            android:id="@+id/editTextNumber"
+            android:id="@+id/codeCreateEt"
             android:layout_width="0dp"
             android:layout_height="50dp"
             android:layout_marginStart="12dp"
@@ -94,7 +94,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.299"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+            app:layout_constraintTop_toBottomOf="@+id/codeCreateEt" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

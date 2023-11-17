@@ -13,6 +13,8 @@ public class SQLiteAdmin extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE users (id INT PRIMARY KEY, login VARCHAR(30) UNIQUE NOT NULL, password VARCHAR(50) NOT NULL)"); // Cria tabela de usuários
         sqLiteDatabase.execSQL("INSERT INTO users(id, login, password) VALUES(1, 'admin', 'admin')"); // Insere usuário admin no banco
+
+        sqLiteDatabase.execSQL("CREATE TABLE products (code INT PRIMARY KEY, name VARCHAR(100) NOT NULL, description TEXT, stock INT DEFAULT 0)");
     }
 
     @Override
