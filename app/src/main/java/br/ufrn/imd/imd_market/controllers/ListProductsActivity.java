@@ -50,7 +50,7 @@ public class ListProductsActivity extends AppCompatActivity {
 
                 final String codeText = "Código: " + product.getCode();
                 final String nameText = "Nome: " + product.getName();
-                final String descriptionText = "Descrição: " + ((product.getDescription()!=null) ? product.getDescription() : "Nenhuma");
+                final String descriptionText = "Descrição: " + ((product.getDescription()!=null) ? product.getDescription() : "");
                 final String stockText = "Estoque: " + product.getStock();
                 final String msg = codeText + "\n" + nameText + "\n" + descriptionText + "\n" + stockText;
 

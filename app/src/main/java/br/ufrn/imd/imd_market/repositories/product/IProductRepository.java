@@ -9,5 +9,5 @@ public interface IProductRepository {
     abstract Product writeOne(Product product);
 
     abstract ArrayList<Product> findAll();
-
+    abstract void updateProduct(int code, Product product);
 }

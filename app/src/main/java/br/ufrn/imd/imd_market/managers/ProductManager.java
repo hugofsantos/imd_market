@@ -39,4 +39,25 @@ public class ProductManager {
             throw e;
         }
     }
+
+    public void updateProduct(int code, Product newProduct) throws Exception{
+        try{
+            final Product findedProduct = this.repository.findByCode(code);
+
+            if(findedProduct == null) throw new Exception("Não existe nenhum produto com esse código.");
+
+            final Product product = new Product();
+            final String newName = (newProduct.getName() == null || newProduct.getName().isEmpty()) ? findedProduct.getName() : newProduct.getName();
+            final String newDescription = ( newProduct.getDescription() == null || newProduct.getDescription().isEmpty()) ? findedProduct.getDescription() : newProduct.getDescription();
+            final int newStock = (newProduct.getStock() < 0) ? findedProduct.getStock() : newProduct.getStock();
+
+            product.setName(newName);
+            product.setDescription(newDescription);
+            product.setStock(newStock);
+
+            this.repository.updateProduct(code, product);
+        }catch (Exception e) {
+            throw e;
+        }
+    }
 }

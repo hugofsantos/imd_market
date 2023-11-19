@@ -68,7 +68,7 @@ public class ProductRepositorySQLite implements IProductRepository{
 
         try{
             SQLiteAdmin admin = SQLiteConfig.getConfig();
-            db = admin.getReadableDatabase();
+            db = admin.getWritableDatabase();
 
             final ContentValues tuple = new ContentValues();
             tuple.put("code", product.getCode());
@@ -123,5 +123,27 @@ public class ProductRepositorySQLite implements IProductRepository{
         }
 
         return products;
+    }
+
+    @Override
+    public void updateProduct(int code, Product product) {
+        SQLiteDatabase db = null;
+
+        try{
+            SQLiteAdmin admin = SQLiteConfig.getConfig();
+            db = admin.getWritableDatabase();
+
+            ContentValues tuple = new ContentValues();
+            tuple.put("code", code);
+            tuple.put("name", product.getName());
+            tuple.put("description", product.getDescription());
+            tuple.put("stock", product.getStock());
+
+            db.update("products", tuple, "code="+code,null);
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            if(db != null) db.close();;
+        }
     }
 }
