@@ -1,5 +1,7 @@
 package br.ufrn.imd.imd_market.managers;
 
+import java.util.ArrayList;
+
 import br.ufrn.imd.imd_market.models.Product;
 import br.ufrn.imd.imd_market.repositories.product.IProductRepository;
 
@@ -16,6 +18,14 @@ public class ProductManager {
             instance = new ProductManager(repository);
 
         return instance;
+    }
+
+    public ArrayList<Product> getAll() {
+        try {
+            return this.repository.findAll();
+        }catch (Exception e){
+            throw e;
+        }
     }
 
     public Product saveProduct(Product product) throws Exception{

@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import br.ufrn.imd.imd_market.configs.SQLiteAdmin;
 import br.ufrn.imd.imd_market.configs.SQLiteConfig;
 import br.ufrn.imd.imd_market.models.Product;
@@ -81,5 +84,44 @@ public class ProductRepositorySQLite implements IProductRepository{
         }finally {
             if(db != null) db.close();;
         }
+    }
+
+    @Override
+    public ArrayList<Product> findAll() {
+        SQLiteDatabase db = null;
+        final ArrayList<Product> products = new ArrayList<Product>();
+
+        try{
+            SQLiteAdmin admin = SQLiteConfig.getConfig();
+            db = admin.getReadableDatabase();
+
+            final String query = "SELECT code, name, description, stock FROM products;";
+
+            Cursor result = db.rawQuery(query, null);
+
+            if(result.moveToFirst()) {
+                do {
+                    final Product product = new Product();
+
+                    final int code = result.getInt(0);
+                    final String name = result.getString(1);
+                    final String description = result.getString(2);
+                    final int stock = result.getInt(3);
+
+                    product.setCode(code);
+                    product.setName(name);
+                    product.setDescription(description);
+                    product.setStock(stock);
+
+                    products.add(product);
+                }while (result.moveToNext());
+            }
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            if(db != null) db.close();
+        }
+
+        return products;
     }
 }

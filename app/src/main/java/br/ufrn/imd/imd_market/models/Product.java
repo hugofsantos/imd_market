@@ -21,6 +21,11 @@ public class Product {
         return Objects.hash(code);
     }
 
+    @Override
+    public String toString() {
+        return this.name + " (" + this.code + ")";
+    }
+
     public int getCode() {
         return code;
     }
