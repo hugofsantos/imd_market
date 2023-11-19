@@ -126,7 +126,7 @@ public class ProductRepositorySQLite implements IProductRepository{
     }
 
     @Override
-    public void updateProduct(int code, Product product) {
+    public void update(int code, Product product) {
         SQLiteDatabase db = null;
 
         try{
@@ -144,6 +144,22 @@ public class ProductRepositorySQLite implements IProductRepository{
             throw e;
         }finally {
             if(db != null) db.close();;
+        }
+    }
+
+    @Override
+    public void delete(int code) {
+        SQLiteDatabase db = null;
+
+        try {
+            SQLiteAdmin admin = SQLiteConfig.getConfig();
+            db = admin.getWritableDatabase();
+
+            db.delete("products", "code=" + code, null);
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            if(db != null) db.close();
         }
     }
 }

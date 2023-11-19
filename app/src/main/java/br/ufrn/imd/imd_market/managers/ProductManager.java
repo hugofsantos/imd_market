@@ -55,7 +55,19 @@ public class ProductManager {
             product.setDescription(newDescription);
             product.setStock(newStock);
 
-            this.repository.updateProduct(code, product);
+            this.repository.update(code, product);
+        }catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void deleteProduct(int code) throws Exception{
+        try{
+            final Product findedProduct = this.repository.findByCode(code);
+
+            if(findedProduct == null) throw new Exception("Não existe nenhum produto com esse código.");
+
+            this.repository.delete(code);
         }catch (Exception e) {
             throw e;
         }
