@@ -35,6 +35,7 @@ public class DeleteProductActivity extends AppCompatActivity {
             if(codeStr == null || codeStr.isEmpty())  throw new Exception("O campo de código do produto não pode estar vazio");
 
             this.productManager.deleteProduct(Integer.parseInt(codeStr));
+            this.clearFields();
             MessageDisplay.showMessage("Produto deletado", "O produto foi deletado com sucesso!", this);
         }catch (Exception e) {
             MessageDisplay.showMessage("Erro ao deletar produto", e.getMessage(), this);

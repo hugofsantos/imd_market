@@ -28,9 +28,17 @@ public class ProductManager {
         }
     }
 
+    public Product findProductByCode(int code) {
+        try {
+            return this.repository.findByCode(code);
+        }catch (Exception e) {
+            throw e;
+        }
+    }
+
     public Product saveProduct(Product product) throws Exception{
         try {
-            final Product findedProduct = this.repository.findByCode(product.getCode());
+            final Product findedProduct = this.findProductByCode(product.getCode());
 
             if(findedProduct != null) throw new Exception("Já existe um produto cadastrado com esse código.");
 
@@ -42,7 +50,7 @@ public class ProductManager {
 
     public void updateProduct(int code, Product newProduct) throws Exception{
         try{
-            final Product findedProduct = this.repository.findByCode(code);
+            final Product findedProduct = this.findProductByCode(code);
 
             if(findedProduct == null) throw new Exception("Não existe nenhum produto com esse código.");
 
@@ -63,7 +71,7 @@ public class ProductManager {
 
     public void deleteProduct(int code) throws Exception{
         try{
-            final Product findedProduct = this.repository.findByCode(code);
+            final Product findedProduct = this.findProductByCode(code);
 
             if(findedProduct == null) throw new Exception("Não existe nenhum produto com esse código.");
 
