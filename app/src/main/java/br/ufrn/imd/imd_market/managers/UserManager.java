@@ -25,4 +25,24 @@ public class UserManager {
             throw e;
         }
     }
+
+    public void changePasswordById(int id, String newPassword) {
+        try{
+            this.repository.updatePasswordById(id, newPassword);
+        }catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void changePasswordByLogin(String login, String newPassword) throws Exception{
+        try{
+            final User findedUser = this.getUserByLogin(login);
+
+            if(findedUser == null) throw new Exception("Não existe nenhum usuário com esse login.");
+
+            this.changePasswordById(findedUser.getId(), newPassword);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

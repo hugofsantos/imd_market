@@ -8,6 +8,11 @@
     <string name="sign_in_button">ENTRAR</string>
     <string name="forgot_password">Esqueci minha senha</string>
 
+    <!-- CHANGE PASSWORD ACTIVITY-->
+    <string name="change_password_title">ALTERAR SENHA</string>
+    <string name="new_password_lable">Nova senha:</string>
+    <string name="change_password_button">Alterar</string>
+
     <!-- HOME ACTIVITY-->
     <string name="home_question">O que deseja fazer?</string>
     <string name="create_product_button">Cadastrar produto</string>
@@ -30,7 +35,6 @@
     <!-- LIST PRODUCTS ACTIVITY -->
     <string name="list_product_title">LISTA DE PRODUTOS</string>
     <string name="back_to_home">Voltar</string>
-
 
 
     <!-- PRODUCT FORM LABELS -->

@@ -2,14 +2,11 @@ package br.ufrn.imd.imd_market.controllers;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
 import br.ufrn.imd.imd_market.R;
-import br.ufrn.imd.imd_market.managers.AuthManager;
 import br.ufrn.imd.imd_market.managers.UserManager;
 import br.ufrn.imd.imd_market.models.User;
 import br.ufrn.imd.imd_market.repositories.user.IUserRepository;
@@ -17,26 +14,26 @@ import br.ufrn.imd.imd_market.repositories.user.UserRepositorySQLite;
 import br.ufrn.imd.imd_market.utils.AppContext;
 import br.ufrn.imd.imd_market.utils.MessageDisplay;
 
-public class MainActivity extends AppCompatActivity {
-    private AuthManager authManager;
+public class ChangePasswordActivity extends AppCompatActivity {
     private EditText loginEditText;
     private EditText passwordEditText;
+    private UserManager userManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_change_password);
+
 
         AppContext.getInstance().setCurrentContext(this);
         final IUserRepository userRepository = UserRepositorySQLite.getInstance();
-        final UserManager userManager = UserManager.getInstance(userRepository);
-        this.authManager = AuthManager.getInstance(userManager);
+        this.userManager = UserManager.getInstance(userRepository);
 
         this.loginEditText = (EditText) findViewById(R.id.loginEditText);
         this.passwordEditText = (EditText) findViewById(R.id.passwordEditText);
     }
 
-    public void sign(View v) {
+    public void updatePassword(View v) {
         try{
             final String login = this.loginEditText.getText().toString();
             final String password = this.passwordEditText.getText().toString();
@@ -44,21 +41,20 @@ public class MainActivity extends AppCompatActivity {
             if(login.isEmpty()) throw new Exception("O login é obrigatório");
             if(password.isEmpty()) throw new Exception("A senha é obrigatória");
 
-            final User user = this.authManager.signIn(login, password);
-
-            if(user != null) navigateToHome();
+            this.userManager.changePasswordByLogin(login, password);
+            MessageDisplay.showMessage("Senha alterada", "A senha do login " + login + " foi alterada com sucesso", this);
+            this.clearFields();
         }catch (Exception e) {
-            MessageDisplay.showMessage("Autenticação falhou", e.getMessage(), this);
+            MessageDisplay.showMessage("Erro ao alterar senha", e.getMessage(), this);
         }
     }
 
-    public void navigateToHome() {
-        Intent intent = new Intent(this, HomeActivity.class);
-        startActivity(intent);
+    public void clearFieldsOnClick(View v) {
+        this.clearFields();
     }
 
-    public void navigateToChangePassword(View v) {
-        Intent intent = new Intent(this, ChangePasswordActivity.class);
-        startActivity(intent);
+    private void clearFields() {
+        this.loginEditText.setText("");
+        this.passwordEditText.setText("");
     }
 }

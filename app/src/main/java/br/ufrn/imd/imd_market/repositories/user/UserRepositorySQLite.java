@@ -1,5 +1,6 @@
 package br.ufrn.imd.imd_market.repositories.user;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
@@ -47,6 +48,25 @@ public class UserRepositorySQLite implements IUserRepository {
             }
 
             return null;
+        }catch (Exception e) {
+            throw e;
+        }finally {
+            if(db != null) db.close();;
+        }
+    }
+
+    @Override
+    public void updatePasswordById(int id, String newPassword) {
+        SQLiteDatabase db = null;
+
+        try{
+            SQLiteAdmin admin = SQLiteConfig.getConfig();
+            db = admin.getWritableDatabase();
+
+            ContentValues tuple = new ContentValues();
+            tuple.put("password", newPassword);
+
+            db.update("users", tuple, "id="+id,null);
         }catch (Exception e) {
             throw e;
         }finally {

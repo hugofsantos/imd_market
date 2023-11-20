@@ -4,4 +4,5 @@ import br.ufrn.imd.imd_market.models.User;
 
 public interface IUserRepository {
     abstract User findUserByLogin(String login);
+    abstract void updatePasswordById(int id, String newPassword);
 }
